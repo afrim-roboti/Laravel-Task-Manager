@@ -13,7 +13,7 @@ Ky është një projekt i thjeshtë për menaxhimin e detyrave që përdor **Lar
 2. **Kalo në folderin e projektit**:
 
     ```bash
-    cd todo-app
+    cd Laravel-Task-Manager
     ```
 
 3. **Instaloni varësitë e projektit me Composer**:
@@ -26,16 +26,32 @@ Ky është një projekt i thjeshtë për menaxhimin e detyrave që përdor **Lar
 
     ```bash
     cp .env.example .env
+
     ```
 
 
 5. **Konfiguroni bazën e të dhënave**:
 
     - Hapni `config/database.php` dhe sigurohuni që informacionet e lidhjes me bazën e të dhënave janë të sakta.
+    - Fushat qe duhen ndryshuar ne .env
+    ```
+    DB_CONNECTION=db-conn
+    DB_HOST=your-host
+    DB_PORT=database-port
+    DB_DATABASE=database-name
+    DB_USERNAME=your-user
+    DB_PASSWORD=your-password
+
+    ```
+
     - Përdorni komandën `php artisan migrate` për të krijuar tabelat në bazën e të dhënave:
 
     ```bash
     php artisan migrate
+
+    php artisan key:generate
+
+
     ```
 
 ## Përdorimi
@@ -44,7 +60,11 @@ Pasi të keni instaluar dhe konfiguruar projektin, mund të filloni përdorimin 
 
 1. **Për të filluar serverin e zhvillimit të Laravel**:
 
+
+
     ```bash
+    npm install
+    npm run dev
     php artisan serve
     ```
 
@@ -53,13 +73,6 @@ Pasi të keni instaluar dhe konfiguruar projektin, mund të filloni përdorimin 
 2. **Përdorimi i Breeze për autentifikim**:
 
     Breeze ofron një sistem të thjeshtë të autentifikimit me `login` dhe `register`. Ju mund të krijoni një llogari të re ose të kyçeni me një të ekzistuese duke përdorur email dhe fjalëkalim.
-
-    Për instalimin e Breeze:
-
-    composer require laravel/breeze --dev
-    php artisan breeze:install
-    npm install && npm run dev
-    php artisan migrate
 
     - Për të krijuar një përdorues të ri, mund të regjistroheni në aplikacion duke përdorur formularin `register`.
     - Pasi të regjistroheni, mund të kyçeni me të dhënat që krijuat.
